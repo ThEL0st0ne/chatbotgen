@@ -1,5 +1,5 @@
 //let backend_url = "https://chatgenbackend-production.up.railway.app";
- let backend_url = "http://127.0.0.1:8000";
+ let backend_url = "http://0.0.0.0:8000";
 //let backend_url = "https://backend-production-ad36.up.railway.app";
 
 function togglecard() {
