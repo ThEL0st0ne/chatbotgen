@@ -5,7 +5,7 @@ FROM nginx:stable-alpine
 WORKDIR /usr/share/nginx/html
 
 # Copy all static files from FRONTEND to the container
-COPY COPY . .
+COPY . .
 
 # Expose port 80 (default Nginx port)
 EXPOSE 80
