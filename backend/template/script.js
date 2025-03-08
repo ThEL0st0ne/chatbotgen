@@ -1,8 +1,11 @@
 // let backend_url = "https://chatgenbackend-production.up.railway.app";
-let backend_url = "http://127.0.0.1:8000";
+//let backend_url = "http://127.0.0.1:8000";
+let backend_url = "https://backend-production-ad36.up.railway.app";
 
 // let backend_url_websocket = "wss://chatgenbackend-production.up.railway.app";
-let backend_url_websocket = "ws://127.0.0.1:8000"
+//let backend_url_websocket = "ws://127.0.0.1:8000"
+let backend_url_websocket = "wss://backend-production-ad36.up.railway.app"
+
 
 function togglePopup() {
   var popup = document.getElementById("chat-container");
