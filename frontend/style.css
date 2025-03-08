@@ -1,0 +1,387 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: #2e2e2e;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  color: #e0e0e0;
+  font-size: 20px;
+  font-weight: 600;
+}
+.search-container {
+  position: relative;
+}
+.search-input {
+  padding: 8px 14px;
+  border-radius: 18px;
+  border: none;
+  width: 180px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #b0b0b0;
+}
+
+#example-bot {
+  display: none; /* change it  */
+}
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.chatBot-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.chatBot {
+  flex-direction: column;
+  background: #f8f8f8;
+  width: 20vw;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatBotHeader {
+  background: #ddd;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+}
+
+.chatBotBody {
+  padding: 15px;
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+}
+
+.iconContainer {
+  display: flex;
+}
+
+.chatIcon,
+.botIcon,
+.bgImage,
+.headerImg {
+  flex: 1;
+  text-align: center;
+}
+
+.chatIcon,
+.botIcon {
+  width: 160px;
+}
+
+.closeBtn {
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.card {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  z-index: 1;
+}
+
+.card input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+.name-input {
+  width: 30%;
+}
+
+.api-input {
+  width: 50%;
+}
+
+.submit-btn {
+  background-color: lightgray;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: gray;
+  color: white;
+}
+
+.close-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+  transition: 0.2s;
+  border: none;
+  background: none;
+}
+
+.close-icon:hover {
+  color: black;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Modal for cropping */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.crop-container {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  margin: auto;
+}
+
+.crop-container img {
+  max-width: 100%;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+.buttons button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-crop {
+  background: #28a745;
+  color: white;
+}
+
+.btn-cancel {
+  background: #dc3545;
+  color: white;
+}
+
+/* Image container */
+
+.imagecontainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.chatIconImageBox,
+.botIconImageBox {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.3s, border 0.3s;
+}
+
+.chatIconImageBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  border-radius: 50%;
+}
+
+.botIconImageBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  border-radius: 50%;
+}
+
+.bgImage {
+  text-align: center;
+}
+
+.bgImageBox,
+.headerImageBox {
+  width: 100px;
+  height: 60px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.3s, border 0.3s;
+}
+
+.bgImageBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  border-radius: 10px;
+}
+
+.headerImg {
+  text-align: center;
+}
+
+.headerImageBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  border-radius: 10px;
+}
+
+#headerImageFileInput,
+#bgImageFileInput,
+#botIconImageInput,
+#chatIconImageInput {
+  display: none;
+}
+
+.chatIconImageBox:hover,
+.botIconImageBox:hover,
+.bgImageBox:hover,
+.headerImageBox:hover {
+  background: #ddd;
+  border-color: #bbb;
+}
+
+.chatInputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 8px;
+  background: #eee;
+  border: 2px solid #ccc;
+  color: #333;
+  border-radius: 8px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #999;
+}
+
+button {
+  padding: 8px 12px;
+  margin-left: 8px;
+  background: #ddd;
+  border: 2px solid #ccc;
+  color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s;
+}
+
+button:hover {
+  background: #ccc;
+  border-color: #bbb;
+}
+
+.chatBotLink {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.botLink {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.botLink:hover {
+  color: #333;
+}

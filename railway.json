@@ -1,0 +1,12 @@
+{
+  "services": [
+    {
+      "name": "fullstack-app",
+      "buildCommand": "docker-compose build",
+      "startCommand": "docker-compose up",
+      "envVars": {
+        "PORT": "8000"
+      }
+    }
+  ]
+}

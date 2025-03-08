@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic chatBots</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="brand">Brand</div>
+      <div class="search-container">
+        <input
+          type="text"
+          id="search"
+          class="search-input"
+          placeholder="Search..."
+          onkeyup="searchFunction()"
+        />
+      </div>
+    </nav>
+    <button class="add-button" onclick="togglecard()">+</button>
+    <div class="card" id="inputcard" onmousedown="dragElement(event, this)">
+      <input
+        type="text"
+        class="name-input"
+        id="name-input"
+        placeholder="Enter name"
+        onclick="event.stopPropagation()"
+      />
+      <input
+        type="text"
+        class="api-input"
+        id="api-input"
+        placeholder="Enter API key"
+        onclick="event.stopPropagation()"
+      />
+
+      <button class="submit-btn" onclick="addchatBot()">Submit</button>
+      <button class="close-icon" onclick="closecard()">✖</button>
+    </div>
+
+    <div class="container">
+      <div class="chatBot-container" id="chatBotContainer">
+        <div class="chatBot" data-name="vishal" id="example-bot">
+          <div class="chatBotHeader">
+            <div class="chatBotName">Name</div>
+            <div class="closeBtn" onclick="deleteBot(this)">x</div>
+          </div>
+          <div class="chatBotBody">
+            <div class="chatBotCode">Code</div>
+            <div class="chatBotApiKey">Api Key: Key</div>
+            <div class="imagecontainer">
+              <div class="iconContainer">
+                <div class="chatIcon">
+                  <div
+                    class="chatIconImageBox"
+                    id="chatIconImageBox"
+                    onclick="chatIconImageInput(this)"
+                  >
+                    <span id="chatIconUploadText">Chat Icon</span>
+                    <img id="chatIconPreviewImage" />
+                  </div>
+                  <input type="file" id="chatIconImageInput" accept="image/*" />
+                </div>
+                <div class="botIcon">
+                  <div
+                    class="botIconImageBox"
+                    id="botIconImageBox"
+                    onclick="botIconImageInput(this)"
+                  >
+                    <span id="botIconUploadText">Bot Icon</span>
+                    <img id="botIconPreviewImage" />
+                  </div>
+                  <input type="file" id="botIconImageInput" accept="image/*" />
+                </div>
+              </div>
+              <div class="bgImage">
+                <div
+                  class="bgImageBox"
+                  id="imageBox"
+                  onclick="bgImageInput(this)"
+                >
+                  <span id="bgImageUploadText">BG Image</span>
+                  <img id="previewBgImage" />
+                </div>
+                <input type="file" id="bgImageFileInput" accept="image/*" />
+              </div>
+              <div class="headerImg">
+                <div
+                  class="headerImageBox"
+                  id="headerImgaeBox"
+                  onclick="headerImageInput(this)"
+                >
+                  <span id="headerImageUploadText">Header Img</span>
+                  <img id="previewHeaderImage" />
+                </div>
+                <input type="file" id="headerImageFileInput" accept="image/*" />
+              </div>
+            </div>
+            <div class="chatInputContainer">
+              <input
+                type="text"
+                id="chatboxtext"
+                placeholder="Enter chat box text ..."
+              />
+              <button onclick="sendChatBoxText(this)">Submit</button>
+            </div>
+            <div class="chatInputContainer">
+              <input
+                type="text"
+                id="chatgradient"
+                placeholder="Enter chat gradient ..."
+              />
+              <button onclick="setChatGradient(this)">Submit</button>
+            </div>
+            <div class="chatBotLink">
+              <a class="botLink" href="link">Link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="cropModal">
+      <div class="modal-content">
+        <div class="crop-container">
+          <img id="cropImage" />
+        </div>
+        <div class="buttons">
+          <button class="btn-crop" id="cropBtn">Crop & Save</button>
+          <button class="btn-cancel" id="cancelBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+  </body>
+</html>
